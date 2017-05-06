@@ -7,7 +7,7 @@ with open('secret.json') as data_file:
     client_id = data['client_id']
     client_secret = data['client_secret']
     redirect_uri = ''
-
+scopes = 'user-read-private user-read-email'
 
 app = Flask(__name__)
 api = Api(app)
