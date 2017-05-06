@@ -1,5 +1,13 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
+import json
+
+with open('secret.json') as data_file:
+    data = json.load(data_file)
+    client_id = data['client_id']
+    client_secret = data['client_secret']
+    redirect_uri = ''
+
 
 app = Flask(__name__)
 api = Api(app)
@@ -11,6 +19,9 @@ class HelloWorld(Resource):
     def put(self, todo_id):
         todos[todo_id]= request.form['data']
         return {todo_id:todos[todo_id]}
+class Connection(Resource):
+    def get(get):
+       return {}
 api.add_resource(HelloWorld, '/<string:todo_id>')
 
 if __name__ == '__main__':
