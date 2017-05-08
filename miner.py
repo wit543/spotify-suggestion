@@ -60,11 +60,8 @@ def get_attribute(files):
     return array
 # print(get_all_files_path("C:\\Users\\wit54\MillionSongSubset"))
 
-# data = get_attribute(get_all_files_path("C:\\Users\\wit54\MillionSongSubset"))
-# joblib.dump(data, 'data.pkl')
-files= ['C:\\Users\\wit54\\MillionSongSubset\\data\\B\\I\\J\\TRBIJYB128F14AE326.h5']
-print(get_attribute(files))
-data = joblib.load('data.pkl')
+data = get_attribute(get_all_files_path("E:\data\million song data set"))
+joblib.dump(data, 'data.pkl')
 kmeans = KMeans(init='k-means++', n_clusters=50).fit(data)
 print("finish reading data!!!!")
 
