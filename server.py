@@ -1,7 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_restful import Resource, Api
 import json
-
+import os
 with open('secret.json') as data_file:
     data = json.load(data_file)
     client_id = data['client_id']
@@ -22,7 +22,12 @@ class HelloWorld(Resource):
 class Connection(Resource):
     def get(get):
        return {}
-api.add_resource(HelloWorld, '/<string:todo_id>')
+api.add_resource(HelloWorld, '/todo/<string:todo_id>')
+
+@app.route('/')
+def hello(name=None):
+    print(open('index.html'))
+    return app.send_static_file('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=8080)
