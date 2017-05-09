@@ -63,8 +63,8 @@ api.add_resource(HelloWorld, '/callback2')
 def hello(name=None):
     access_token = request.args.get('access_token')
     print(access_token)
-   # print(get_attribute(access_token))
-    # print(get_track("",""))
+    print(get_attribute(access_token))
+    print(get_track("",""))
     print(open('index.html'))
     return app.send_static_file('index.html')
 
