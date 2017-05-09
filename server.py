@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 from flask_restful import Resource, Api
 import json
 import os
+
 with open('secret.json') as data_file:
     data = json.load(data_file)
     client_id = data['client_id']
