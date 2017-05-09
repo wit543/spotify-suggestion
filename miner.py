@@ -51,6 +51,8 @@ def get_attribute(files):
         temp.append(hdf5_getters.get_tempo(h5))
         temp.append(hdf5_getters.get_time_signature(h5))
         temp.append(hdf5_getters.get_time_signature_confidence(h5))
+        temp.append(hdf5_getters.get_title(h5))
+        temp.append(hdf5_getters.get_artist_name(h5))
         temp = np.nan_to_num(temp)
         array.append(temp)
         # if count%100 ==0:
@@ -59,10 +61,39 @@ def get_attribute(files):
         h5.close()
     return array
 # print(get_all_files_path("C:\\Users\\wit54\MillionSongSubset"))
+def compute_data(text):
+    label = ""
+    data = get_attribute(get_all_files_path(text+label))
+    # data =joblib.load("C:\\Users\\wit54\\spotify-suggestion\\data.pkl")
+    joblib.dump(data, "data"+label+".pkl")
+    array =[]
+    for i in data:
+        array.append(i[:13])
+    array = np.array(array,dtype=np.float32)
+    array = np.nan_to_num(array)
+    kmeans = KMeans(init='k-means++', n_clusters=5000).fit(array)
+    return kmeans
+def loadData(text):
+    return joblib.load("kmeans.pkl")
+kmeans = compute_data("C:\\Users\\wit54\\MillionSongSubset\\data")
+data = joblib.load("C:\\Users\\wit54\\spotify-suggestion\\data.pkl")
 
-data = get_attribute(get_all_files_path("E:\data\million song data set"))
-joblib.dump(data, 'data.pkl')
-kmeans = KMeans(init='k-means++', n_clusters=50).fit(data)
+# data = np.array(data )
+# print(data.shape)
+array =[]
+label_map = []
+mapped = {}
+for i in range(5000):
+    mapped[i]=[]
+for i in data:
+    array.append(i[:13])
+    label_map.append([i[13],i[14]])
+
+print(np.array(array,dtype= np.float64))
+for i in range(len(kmeans.labels_)):
+    mapped[kmeans.labels_[i]].append(label_map[i])
+dataaaa =get_attribute(["C:\\Users\\wit54\\MillionSongSubset\\data\\A\\A\\A\\TRAAAAW128F429D538.h5"])[0][:13]
+print(dataaaa)
+print(mapped[kmeans.predict(np.array(dataaaa,dtype=np.float64))[0]])
 print("finish reading data!!!!")
-
-joblib.dump(kmeans, 'kmeans.pkl')
+# joblib.dump(kmeans, 'kmeans.pkl')
