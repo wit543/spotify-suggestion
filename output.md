@@ -2,20 +2,8 @@
 ```json
 
 {
-  "bars": [
-    {
-      "start": 251.98282,
-      "duration": 0.29765,
-      "confidence": 0.652
-    }
-  ],
-  "beats": [
-    {
-      "start": 251.98282,
-      "duration": 0.29765,
-      "confidence": 0.652
-    }
-  ],
+  "bars": [...],
+  "beats": [...],
   "meta": {
     "analyzer_version": "4.0.0",
     "platform": "Linux",
@@ -25,35 +13,8 @@
     "analysis_time": 9.1394,
     "input_process": "libvorbisfile L+R 44100->22050"
   },
-  "sections": [
-    {
-      "start": 237.02356,
-      "duration": 18.32542,
-      "confidence": 1,
-      "loudness": -20.074,
-      "tempo": 98.253,
-      "tempo_confidence": 0.767,
-      "key": 5,
-      "key_confidence": 0.327,
-      "mode": 1,
-      "mode_confidence": 0.566,
-      "time_signature": 4,
-      "time_signature_confidence": 1
-    }
-  ],
-  "segments": [
-    {
-      "start": 252.15601,
-      "duration": 3.19297,
-      "confidence": 0.522,
-      "loudness_start": -23.356,
-      "loudness_max_time": 0.06971,
-      "loudness_max": -18.121,
-      "loudness_end": -60,
-      "pitches": [...],
-      "timbre": [...]
-    }
-  ],
+  "sections": [...],
+  "segments": [...],
   "tatums": [
     {
       "start": 251.98282,
