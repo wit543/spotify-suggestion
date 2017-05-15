@@ -62,7 +62,7 @@
     }
   ],
   "track": {
-    "num_samples":
+    "num_samples": 1,
     "duration": 255.34898,
     "sample_md5": "",
     "offset_seconds": 0,
