@@ -1,55 +1,6 @@
 
-```json
+```python
 
-{
-  "bars": [...],
-  "beats": [...],
-  "meta": {
-    "analyzer_version": "4.0.0",
-    "platform": "Linux",
-    "detailed_status": "OK",
-    "status_code": 0,
-    "timestamp": 1456010389,
-    "analysis_time": 9.1394,
-    "input_process": "libvorbisfile L+R 44100->22050"
-  },
-  "sections": [...],
-  "segments": [...],
-  "tatums": [
-    {
-      "start": 251.98282,
-      "duration": 0.29765,
-      "confidence": 0.652
-    }
-  ],
-  "track": {
-    "num_samples": 1,
-    "duration": 255.34898,
-    "sample_md5": "",
-    "offset_seconds": 0,
-    "window_seconds": 0,
-    "analysis_sample_rate": 22050,
-    "analysis_channels": 1,
-    "end_of_fade_in": 0,
-    "start_of_fade_out": 251.73333,
-    "loudness": -11.84,
-    "tempo": 98.002,
-    "tempo_confidence": 0.423,
-    "time_signature": 4,
-    "time_signature_confidence": 1,
-    "key": 5,
-    "key_confidence": 0.36,
-    "mode": 0,
-    "mode_confidence": 0.414,
-    "codestring": "eJxVnAmS5DgOBL-ST-B9_P9j4x7M6qoxW9tpsZQSCeI...",
-    "code_version": 3.15,
-    "echoprintstring": "eJzlvQmSHDmStHslxw4cB-v9j_A-tahhVKV0IH9...",
-    "echoprint_version": 4.12,
-    "synchstring": "eJx1mIlx7ToORFNRCCK455_YoE9Dtt-vmrKsK3EBsTY...",
-    "synch_version": 1,
-    "rhythmstring": "eJyNXAmOLT2r28pZQuZh_xv7g21Iqu_3pCd160xV...",
-    "rhythm_version": 1
-  }
-}
+kmeans.predict([danceability,energy,key,key_confidence,loudness,mode,mode_confidence,tempo,time_signature,time_signature_confidence])[0]
 
 ```
