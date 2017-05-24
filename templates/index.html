@@ -1,0 +1,65 @@
+<html>
+<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+
+
+<nav class="navbar navbar-inverse bg-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1 class="navbar-brand" href="#">Spotify Suggestion</h1>
+    </div>
+    <ul class="nav navbar-nav">
+
+    </ul>
+  </div>
+</nav>
+
+ <div class="owl-carousel" style="margin:15;">
+   {%for i in list%}
+   <div class="thumbnail item ">
+     <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A{{i}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+   </div>
+   {%endfor%}
+   <div class="thumbnail item ">
+     <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+   </div>
+ </div>
+{%for i in list%}
+{{i}}
+{%endfor%}
+ <script>
+ $(document).ready(function(){
+   $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+ });
+ </script>
+</body>
+</html>
+

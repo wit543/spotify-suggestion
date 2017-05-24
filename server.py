@@ -1,5 +1,8 @@
 from flask import Flask, request, render_template
 from flask_restful import Resource, Api
+from sklearn.externals import joblib
+from sklearn.cluster import KMeans
+import numpy as np
 import json, requests
 import os
 with open('secret.json') as data_file:
@@ -62,11 +65,26 @@ api.add_resource(HelloWorld, '/callback2')
 @app.route('/')
 def hello(name=None):
     access_token = request.args.get('access_token')
+    data =joblib.load("data.pkl")
+    kmeans = joblib.load("kmeans.pkl")
+    array =[]
+    label_map = []
+    mapped = {}
+    for i in range(5000):
+        mapped[i]=[]
+    for i in data:
+        array.append(i[:10])
+        label_map.append([i[10],i[11]])
+
+    print(np.array(array,dtype= np.float64))
+    for i in range(len(kmeans.labels_)):
+        mapped[kmeans.labels_[i]].append(label_map[i])
+    track_list = mapped[kmeans.predict(get_attribute(access_token))[0]]
     print(access_token)
-    print(get_attribute(access_token))
+    print(track_list)
     print(get_track("",""))
-    print(open('index.html'))
-    return app.send_static_file('index.html')
+    #print(open('index.html'))
+    return render_template('index.html',list =[str(x) for x in track_list])
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=8080)
